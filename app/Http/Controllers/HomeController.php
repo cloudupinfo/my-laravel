@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('admin.dashboard');
     }
+
+    /**
+     * Logout the application.
+     *
+     * @return to Login page
+     */
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect('/login');
+    }    
 }
